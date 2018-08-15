@@ -1,3 +1,4 @@
+# DEV BRANCH
 # BSQ description
 **BSQ** is a program to find the biggest square on the given map/maps avoiding obstacles.
 
