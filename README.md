@@ -9,9 +9,9 @@ The first line of map file must contain information on how to read the map (resp
 * **The "full" character;**
 
 # The valid map:
-**must be made up of characters listed before**
-**has the same lenth of each line**
-**must have at least one empty box**
+* **must be made up of characters listed before**
+* **has the same lenth of each line**
+* **must have at least one empty box**
 
 # How to use?
 
