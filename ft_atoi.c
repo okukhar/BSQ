@@ -6,13 +6,13 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 19:43:05 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 21:27:17 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 22:44:56 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 
-long int	number(char *str)
+static long int	number(char *str)
 {
 	int			i;
 	long int	ret;
@@ -27,7 +27,7 @@ long int	number(char *str)
 	return (ret);
 }
 
-int			ft_atoi(char *str)
+int				ft_atoi(char *str)
 {
 	int i;
 

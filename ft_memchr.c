@@ -6,13 +6,13 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 22:50:12 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 20:45:18 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 23:07:23 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	size_t i;
 

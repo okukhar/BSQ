@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 21:35:28 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 20:54:47 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 22:46:10 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 #include "libft.h"
 
-char	*ft_strrev(char *s)
+static char	*ft_strrev(char *s)
 {
 	int i;
 	int a;
@@ -34,7 +34,7 @@ char	*ft_strrev(char *s)
 	return (s);
 }
 
-char	*ft_itoa(int n)
+char		*ft_itoa(int n)
 {
 	char	a;
 	char	*s;

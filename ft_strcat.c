@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:22:27 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 17:48:39 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 23:07:52 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	ft_strlen(const char *s)
 	return (i);
 }
 
-char		*strcat(char *restrict s1, const char *restrict s2)
+char		*ft_strcat(char *restrict s1, const char *restrict s2)
 {
 	int i;
 

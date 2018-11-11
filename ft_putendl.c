@@ -6,13 +6,13 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 22:09:07 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 18:11:01 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 22:47:17 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putstr(char *s)
+static void	ft_putstr(char *s)
 {
 	int i;
 
@@ -24,7 +24,7 @@ void	ft_putstr(char *s)
 	}
 }
 
-void	ft_putendl(char const *s)
+void		ft_putendl(char const *s)
 {
 	ft_putstr((char *)s);
 	ft_putstr("\n");

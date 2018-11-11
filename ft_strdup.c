@@ -6,14 +6,14 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 23:09:53 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 20:45:41 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 23:08:05 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "libft.h"
 
-char			*strdup(const char *s1)
+char			*ft_strdup(const char *s1)
 {
 	int		a;
 	char	*s2;

@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/03 15:17:39 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 21:30:36 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 17:11:05 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,11 @@ typedef	struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+t_list				*ft_lstnew(void const *content, size_t content_size);
+void				ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
+void				ft_lstadd(t_list **alst, t_list *nw);
+void				ft_lstiter(t_list *lst, void (*f)(t_list	*elem));
+t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list	*elem));
 
 #endif

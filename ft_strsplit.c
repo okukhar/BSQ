@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/01 13:55:05 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 17:45:51 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 22:50:47 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <unistd.h>
 #include <string.h>
 
-int			ft_strlen(const char *s)
+static int			ft_strlen(const char *s)
 {
 	int i;
 
@@ -27,7 +27,7 @@ int			ft_strlen(const char *s)
 	return (i);
 }
 
-char		*ft_strcpydot(char *dst, const char *src, char c)
+static char			*ft_strcpydot(char *dst, const char *src, char c)
 {
 	int i;
 
@@ -41,7 +41,7 @@ char		*ft_strcpydot(char *dst, const char *src, char c)
 	return (dst);
 }
 
-static int	counter(const char *s, char c)
+static int			counter(const char *s, char c)
 {
 	int i;
 	int j;
@@ -65,7 +65,7 @@ static int	counter(const char *s, char c)
 	return (j + 1);
 }
 
-char		**ft_strsplit(const char *s, char c)
+char				**ft_strsplit(const char *s, char c)
 {
 	int		i;
 	int		j;

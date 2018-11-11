@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 22:16:33 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 20:53:51 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/10 22:39:03 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	putdec(int n)
 	write(1, &a, 1);
 }
 
-void	ft_putnbr(int n)
+void		ft_putnbr(int n)
 {
 	if (n < 0)
 	{
