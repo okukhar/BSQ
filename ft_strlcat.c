@@ -6,11 +6,13 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:01:29 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 22:59:06 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/13 17:18:40 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 static int	ft_strlen(const char *s)
 {
@@ -30,7 +32,7 @@ size_t		ft_strlcat(char *restrict dst, const char *restrict src,
 
 	i = 0;
 	a = ft_strlen(dst);
-	while (i < dstsize - a - 1)
+	while (i < dstsize)
 	{
 		*(dst + a) = *(src + i);
 		a++;

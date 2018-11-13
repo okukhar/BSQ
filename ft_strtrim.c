@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/01 12:31:21 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 17:44:33 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 20:49:57 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 
 static int		first_fill(char const *s)
 {
-	int i;
+	int		i;
+	char	*a;
 
 	i = 0;
-	while (*(s + i) == ' '
-		|| *(s + i) == '\t'
-		|| *(s + i) == '\n')
+	a = (char *)s;
+	while (*(a + i) == ' ' || *(a + i) == '\t' || *(a + i) == '\n')
+	{
 		i++;
+	}
 	return (i);
 }
 
@@ -29,13 +31,21 @@ char			*ft_strtrim(char const *s)
 {
 	char	*ret;
 	int		i;
+	int		j;
 
 	i = first_fill(s);
-	ret = (char *)malloc(sizeof(char) * ft_strlen(s));
+	j = 0;
+	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
 	while (*(s + i) != ' '
-	|| *(s + i) != '\t'
-	|| *(s + i) != '\n')
+	&& *(s + i) != '\t'
+	&& *(s + i) != '\n'
+	&& *(s + i) != '\0')
+	{
+		*(ret + j) = *((char *)s + i);
 		i++;
-	*(ret + i) = '\0';
-	return (ret + first_fill(s));
+		j++;
+	}
+	*(ret + j) = '\0';
+	return (ret);
 }

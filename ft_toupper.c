@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 15:59:27 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 17:56:00 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 21:33:50 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_toupper(int c)
 {
-	if (ft_isupper(c) == 1)
-		return (c);
-	return (c + 32);
+	if (ft_islower(c) == 1)
+		return (c - 32);
+	return (c);
 }

@@ -6,29 +6,24 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:22:27 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 23:07:52 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 21:58:37 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	ft_strlen(const char *s)
-{
-	int i;
-
-	i = 0;
-	while (*(s + i) != '\0')
-		i++;
-	return (i);
-}
+#include "libft.h"
 
 char		*ft_strcat(char *restrict s1, const char *restrict s2)
 {
 	int i;
+	int j;
 
 	i = ft_strlen(s1);
-	while (*(s2 + i) != '\0')
+	j = 0;
+	while (*(s2 + j) != '\0' && (s1 + i))
 	{
-		*(s1 + i) = *(s2 + i);
+		*(s1 + i) = *(s2 + j);
 		i++;
+		j++;
 	}
 	*(s1 + i) = '\0';
 	return (s1);

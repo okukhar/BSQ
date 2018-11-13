@@ -6,13 +6,13 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 15:43:14 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 16:23:24 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 21:18:10 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_islower(int c)
 {
-	if ((unsigned char)c >= 'a' && (unsigned char)c <= 'z')
+	if (c >= 'a' && c <= 'z')
 		return (1);
 	return (0);
 }

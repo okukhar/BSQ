@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/10/30 15:59:44 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 20:59:00 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 20:44:50 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char	*ret;
 
 	i = 0;
-	ret = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (!(ret = (char *)malloc(sizeof(char) * ft_strlen(s) + 1)))
+		return (NULL);
 	while (*(s + i) != '\0')
 	{
 		*(ret + i) = (*f)(i, *(s + i));
 		i++;
 	}
+	*(ret + i) = '\0';
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/01 13:55:05 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 22:50:47 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 20:49:34 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ char				**ft_strsplit(const char *s, char c)
 	int		j;
 	char	**ret;
 
-	ret = (char **)malloc(sizeof(char *) * (counter(s, c) + 1));
+	if (!(ret = (char **)malloc(sizeof(char *) * (counter(s, c) + 1))))
+		return (NULL);
 	i = 0;
 	j = 0;
 	while (i < counter(s, c))

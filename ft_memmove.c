@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 18:27:25 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 23:04:23 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/13 17:10:26 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,49 @@
 #include <stdlib.h>
 #include "libft.h"
 
-void	*ft_memmove(void *dest, const void *src, size_t n)
+/*
+//void	*ft_memmove(void *dt, const void *sc, size_t n)
+//{
+//	int i;
+//
+//	i = -1;
+//	while (i++ <= (int)n)
+//		*((char *)dt + (dt > sc) * n + (-2 * (dt > sc) + 1) * i) =
+//		*((char *)sc + (dt > sc) * n + (-2 * (dt > sc) + 1) * i);
+//	return (dt);
+//}
+*/
+
+void    *ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t i;
-	size_t j;
 
 	i = 0;
-	j = 0;
-	while (*((char *)dest + i) != '\0')
+	if (dest > src)
 	{
-		if (dest + i == src)
+		while (i < n)
 		{
-			while (*((char *)src + i) != '\0' && j++ < n)
-				*((char *)dest + j) = *((char *)src + j + i);
-			return (dest);
+			*((unsigned char *)dest + n - i) = *((unsigned char *)src + n - i);
+					i++;
 		}
-		else if (dest == src + i)
-		{
-			while (*((char *)dest + i) != '\0' && j++ < n)
-				*((char *)dest + j) = *((char *)src + j + i);
-			j++;
-			return (dest);
-		}
-		i++;
+		return (dest);
 	}
-	ft_memcpy(dest, src, n);
+	else if (src > dest)
+	{
+		while (i < n)
+		{
+			*((unsigned char *)dest + i) = *((unsigned char *)src + i);
+			i++;
+		}
+		return (dest);
+	}
 	return (dest);
 }
+
+/*
+int		main(int argc, char **argv)
+{
+	int *a;
+
+	a = (int *)malloc(sizeof(int) * 5);
+*/

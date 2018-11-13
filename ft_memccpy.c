@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 21:52:50 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 20:45:08 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 19:00:51 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,12 @@ void	*ft_memccpy(void *restrict dst, const void *restrict src,
 	i = 0;
 	while (i < n)
 	{
-		if (*((char *)src) == (unsigned char)c)
-			return (dst + i);
-		*((char *)dst + i) = *((char *)src + i);
+		if (*((unsigned char *)src + i) == (unsigned char)c)
+		{
+			*((unsigned char *)dst + i) = *((unsigned char *)src + i);
+			return (dst + i + 1);
+		}
+		*((unsigned char *)dst + i) = *((unsigned char *)src + i);
 		i++;
 	}
 	return (NULL);

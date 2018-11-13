@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 23:09:53 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 23:08:05 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 20:44:32 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ char			*ft_strdup(const char *s1)
 	char	*s2;
 
 	a = ft_strlen(s1);
-	s2 = (char *)malloc(sizeof(char) * a);
-	ft_memcpy(s2, s1, a);
+	if (!(s2 = (char *)malloc(sizeof(char) * (a + 1))))
+		return (NULL);
+	ft_memcpy(s2, s1, a + 1);
 	return (s2);
 }

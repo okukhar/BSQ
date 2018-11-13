@@ -6,15 +6,15 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 19:58:04 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 15:49:10 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 21:13:39 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int		ft_isalpha(int c)
 {
-	if ((char)c >= 'A' && (char)c <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return (1);
-	else if ((char)c >= 'a' && (char)c <= 'z')
+	else if (c >= 'a' && c <= 'z')
 		return (1);
 	return (0);
 }

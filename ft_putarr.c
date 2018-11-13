@@ -6,9 +6,12 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 16:23:33 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 16:24:33 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/11 22:08:32 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "libft.h"
+#include <unistd.h>
 
 void	ft_putarr(char **arr)
 {
