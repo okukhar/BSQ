@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 19:40:15 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/11 19:05:48 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/13 19:23:03 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 
 	i = 0;
 	j = 0;
-	while (*(s1 + i) != '\0' && *(s2 + i) != '\0' && j < n)
+	while (*(s1 + i) != '\0' && *(s2 + i) != '\0' && j < n && s1 + i && s2 + i)
 	{
 		if (*(s1 + i) < *(s2 + i))
 			return (-1);
@@ -28,9 +28,9 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n)
 		i++;
 		j++;
 	}
-	if (*(s1 + i) != '\0' && *(s2 + i) == '\0')
-		return (1);
-	else if (*(s1 + i) != '\0' && *(s2 + i) == '\0')
+	if (*(s1 + i) == '\0' && *(s2 + i) != '\0')
 		return (-1);
+	else if (*(s1 + i) != '\0' && *(s2 + i) == '\0')
+		return (1);
 	return (0);
 }

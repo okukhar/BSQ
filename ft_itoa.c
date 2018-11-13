@@ -6,7 +6,7 @@
 /*   By: tpokalch <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/02 21:35:28 by tpokalch          #+#    #+#             */
-/*   Updated: 2018/11/10 22:46:10 by tpokalch         ###   ########.fr       */
+/*   Updated: 2018/11/13 20:03:34 by tpokalch         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,26 @@ static char	*ft_strrev(char *s)
 	return (s);
 }
 
+int			intlen(int n)
+{
+	int i;
+	int a;
+
+	a = n;
+	i = 0;
+	if (n < 0)
+	{
+		n = -n;
+		i++;
+	}
+	while (n > 0)
+	{
+		n = n / 10;
+		i++;
+	}
+	return (i);
+}
+
 char		*ft_itoa(int n)
 {
 	char	a;
@@ -41,14 +61,34 @@ char		*ft_itoa(int n)
 	int		i;
 
 	i = 0;
-	if (!(s = (char *)malloc(sizeof(char) * n)))
+	if (!(s = (char *)malloc(sizeof(char) * (intlen(n) + 1))))
 		return (NULL);
+	if (n < 0)
+	{
+		*(s + intlen(n) - 1) = '-';
+		n = -n;
+	}
+	else if (n == 0)
+	{
+		*s = 0 + '0';
+		return (s);
+	}
 	while (n > 0)
 	{
+		printf("%d\n", i);
 		a = n % 10 + '0';
 		n = n / 10;
-		*(s + i) = a;
-		i++;
+		*(s + i++) = a;
 	}
+	*(s + i + 1) = '\0';
 	return (ft_strrev(s));
+}
+
+int			main(int argc, char **argv)
+{
+	int a;
+
+	a = atoi(*(argv + 1));
+	printf("intlen %d\n", intlen(a));
+	printf("ft_itoa %s", ft_itoa(atoi(*(argv + 1))));
 }
