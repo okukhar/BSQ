@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
+void				ft_putmem(void *s, int a);
 char				*ft_strrev(char *s);
 void				ft_putchar(char c);
 void				ft_putstr(char const *str);

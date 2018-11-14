@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 char	*ft_strstr(const char *haystack, const char *needle)
 {
@@ -28,7 +29,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 			j = 0;
 			while (*(haystack + i + j) == *(needle + j))
 			{
-				if (*(needle + j) == '\0')
+				if (*(needle + j + 1) == '\0')
 					return ((char *)(haystack + i));
 				j++;
 			}
@@ -37,3 +38,13 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	}
 	return (NULL);
 }
+/*
+int	main(int argc, char **argv)
+{
+	char *s2 = "FF";
+	char *s1 = "see F your F return FF now FF";
+
+//	printf("%s\n", ft_strstr(s1, s2));
+	printf("%s\n", ft_strstr(*(argv + 1), *(argv + 2)));
+}
+*/

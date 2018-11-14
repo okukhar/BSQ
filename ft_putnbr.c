@@ -24,7 +24,13 @@ static void	putdec(int n)
 
 void		ft_putnbr(int n)
 {
-	if (n < 0)
+	if(n == -2147483648/* || n >= 2147483648*/)
+	{
+		write(1, "-2", 2);
+		ft_putnbr(147483648);
+	} 
+//		return (void);
+	else if (n < 0)
 	{
 		write(1, "-", 1);
 		ft_putnbr(-n);
@@ -36,3 +42,15 @@ void		ft_putnbr(int n)
 	if (n >= 0)
 		putdec(n % 10);
 }
+/*
+int	main(int argc, char **(argv))
+{
+//	int a = (-2147483647 -1);
+	int a;
+	a = atoi(*(argv + 1));
+	 ft_putnbr(a);
+	write(1, "\n", 1);
+//	printf("%d", -a);
+//printf("%d", 21474836478);
+}
+*/

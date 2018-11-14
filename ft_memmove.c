@@ -35,7 +35,7 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	if (dest > src)
 	{
-		while (i < n)
+		while (i <= n)
 		{
 			*((unsigned char *)dest + n - i) = *((unsigned char *)src + n - i);
 					i++;
@@ -57,7 +57,10 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 /*
 int		main(int argc, char **argv)
 {
-	int *a;
+	char *a = "this is a good nyancat !\r\n";
+	int size = ft_strlen(a);
 
-	a = (int *)malloc(sizeof(int) * 5);
+	char dst[0xF0];
+	ft_putmem(ft_memmove(dst, a, size), size);
+}
 */

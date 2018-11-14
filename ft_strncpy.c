@@ -19,8 +19,11 @@ char	*ft_strncpy(char *dst, const char *src, size_t len)
 	i = 0;
 	while (i < len)
 	{
-		if (!(src + i))
+		if (!(src + i) && dst + i)
+		{
 			*(dst + i) = '\0';
+			i++;
+		}
 		else
 		{
 			*(dst + i) = *(src + i);
