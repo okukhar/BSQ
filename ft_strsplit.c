@@ -76,7 +76,8 @@ char				**ft_strsplit(const char *s, char c)
 	i = 0;
 	j = 0;
 	while (i < counter(s, c))
-		*(ret + i++) = (char *)malloc(sizeof(char) * ((ft_strlen(s) + 1)));
+		if (!(*(ret + i++) = (char *)malloc(sizeof(char) * ((ft_strlen(s) + 1)))))
+			return (NULL);
 	i = 0;
 	while (*(s + i) == c)
 		i++;

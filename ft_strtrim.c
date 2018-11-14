@@ -27,20 +27,30 @@ static int		first_fill(char const *s)
 	return (i);
 }
 
+static int		last_fill(char const *s)
+{
+	int i;
+
+	i = ft_strlen(s) - 1;
+	while (*(s + i) == ' '
+	|| *(s + i) == '\t'
+	|| *(s + i) == '\n')
+		i--;
+	return (i);
+}
+	
+
 char			*ft_strtrim(char const *s)
 {
 	char	*ret;
 	int		i;
 	int		j;
 
-	i = first_fill(s);
 	j = 0;
+	i = first_fill(s);
 	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
 		return (NULL);
-	while (*(s + i) != ' '
-	&& *(s + i) != '\t'
-	&& *(s + i) != '\n'
-	&& *(s + i) != '\0')
+	while(i <= last_fill(s))
 	{
 		*(ret + j) = *((char *)s + i);
 		i++;
@@ -49,3 +59,15 @@ char			*ft_strtrim(char const *s)
 	*(ret + j) = '\0';
 	return (ret);
 }
+
+/*
+int	main(void)
+{
+	char *s1 = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
+	printf("strlen %d\n", ft_strlen(s1));
+	printf("behid last fill %c\n", *(s1 + last_fill(s1)));
+	printf("behind first fill %c\n", *(s1 + first_fill(s1)));
+	printf("%s\n", ft_strtrim(s1));
+	return (0);
+}
+*/

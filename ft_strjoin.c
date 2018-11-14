@@ -15,6 +15,7 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
+	int 		j;
 	int		i;
 	char	*ret;
 
@@ -22,6 +23,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	(ft_strlen(s1) + ft_strlen(s2) + 1))))
 		return (NULL);
 	i = 0;
+	j = 0;
 	while (i < ft_strlen(s1))
 	{
 		*(ret + i) = *(s1 + i);
@@ -29,8 +31,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	while (i < ft_strlen(s1) + ft_strlen(s2))
 	{
-		*(ret + i) = *(s2 + i);
+		*(ret + i) = *(s2 + j);
 		i++;
+		j++;
 	}
+	*(ret + i) = '\0';
 	return (ret);
 }

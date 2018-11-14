@@ -17,6 +17,7 @@
 # include <unistd.h>
 # include <stdio.h>
 
+char				*ft_strrev(char *s);
 void				ft_putchar(char c);
 void				ft_putstr(char const *str);
 void				ft_putendl(char const *str);

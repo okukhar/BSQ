@@ -14,73 +14,67 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static char	*ft_strrev(char *s)
-{
-	int i;
-	int a;
-	int b;
-
-	i = ft_strlen(s);
-	a = 0;
-	b = i / 2 + i % 2;
-	while (i > b)
-	{
-		*(s + a) = *(s + a) + *(s + i - 1);
-		*(s + i - 1) = *(s + a) - *(s + i - 1);
-		*(s + a) = *(s + a) - *(s + i - 1);
-		a++;
-		i--;
-	}
-	return (s);
-}
-
-int			intlen(int n)
+int		intlen(int nb)
 {
 	int i;
 
 	i = 0;
-	if (n < 0)
+	if (nb == 0)
+		return (1);
+	else if (nb < 0)
+		return (intlen(-nb) + 1);
+	while (nb != 0)
 	{
-		n = -n;
-		i++;
-	}
-	while (n > 0)
-	{
-		n = n / 10;
+		nb = nb / 10;
 		i++;
 	}
 	return (i);
 }
 
-char		*ft_itoa(int n)
+/*
+void	ft_strrev(char *s)
+{
+	int		i;
+	char	c;
+
+	i = 0;
+	while (i < ft_strlen(s) / 2)
+	{
+		c = *(s + i);
+		*(s + i) = *(s + ft_strlen(s) - i - 1);
+		*(s + ft_strlen(s) - i - 1) = c;
+		i++;
+	}
+}
+*/
+char	*ft_itoa(int nbr)
 {
 	char	*s;
 	int		i;
-	char a;
+	int		a;
+	int		b;
 
+	b = nbr;
+	a = intlen(nbr);
+	if(!(s = (char *)malloc(sizeof(char) * (intlen(nbr) + 1))))
+		return(NULL);
 	i = 0;
-	if (!(s = (char *)malloc(sizeof(char) * (intlen(n) + 1))))
-		return (NULL);
-	if (n < 0)
+	nbr = (int)nbr;
+	if (nbr < 0)
+		nbr = -(nbr);
+	while (i < a)
 	{
-		*(s + intlen(n) - 1) = '-';
-		n = -n;
+		*(s + i) = (nbr) % 10 + '0';
+		nbr = nbr / 10;
+		i++;
 	}
-	else if (n == 0)
-	{
-		*s = 0 + '0';
-		return (s);
-	}
-	while (n > 0)
-	{
-		printf("%d\n", i);
-		a = n % 10 + '0';
-		n = n / 10;
-		*(s + i++) = a;
-	}
-	*(s + i + 1) = '\0';
-	return (ft_strrev(s));
+	*(s + i) = '\0';
+	ft_strrev(s);
+	if (b < 0)
+		*(s) = '-';
+	return (s);
 }
+
 /*
 int			main(int argc, char **argv)
 {
@@ -88,6 +82,6 @@ int			main(int argc, char **argv)
 
 	a = atoi(*(argv + 1));
 	printf("intlen %d\n", intlen(a));
-	printf("ft_itoa %s", ft_itoa(atoi(*(argv + 1))));
+	printf("ft_itoa %s\n", ft_itoa(atoi(*(argv + 1))));
 }
 */
