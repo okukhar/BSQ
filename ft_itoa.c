@@ -37,9 +37,7 @@ static char	*ft_strrev(char *s)
 int			intlen(int n)
 {
 	int i;
-	int a;
 
-	a = n;
 	i = 0;
 	if (n < 0)
 	{
@@ -56,9 +54,9 @@ int			intlen(int n)
 
 char		*ft_itoa(int n)
 {
-	char	a;
 	char	*s;
 	int		i;
+	char a;
 
 	i = 0;
 	if (!(s = (char *)malloc(sizeof(char) * (intlen(n) + 1))))
@@ -83,7 +81,7 @@ char		*ft_itoa(int n)
 	*(s + i + 1) = '\0';
 	return (ft_strrev(s));
 }
-
+/*
 int			main(int argc, char **argv)
 {
 	int a;
@@ -92,3 +90,4 @@ int			main(int argc, char **argv)
 	printf("intlen %d\n", intlen(a));
 	printf("ft_itoa %s", ft_itoa(atoi(*(argv + 1))));
 }
+*/

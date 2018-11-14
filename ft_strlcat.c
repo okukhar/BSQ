@@ -32,7 +32,7 @@ size_t		ft_strlcat(char *restrict dst, const char *restrict src,
 
 	i = 0;
 	a = ft_strlen(dst);
-	if((int)(dst + a + dstsize) == 1)
+	if((long int)(dst + a + dstsize) == 1)
 	{
 		while (i < dstsize)
 		{
