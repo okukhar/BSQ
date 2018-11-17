@@ -16,8 +16,15 @@
 void	*ft_memalloc(size_t size)
 {
 	void *arr;
+	size_t i;
 
+	i = 0;
 	if (!(arr = (void *)(malloc(size))))
 		return (NULL);
+	while (i < size)
+	{
+		*((int *)(arr + i)) = 0;
+		i++;
+	}
 	return (arr);
 }

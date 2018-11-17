@@ -11,10 +11,11 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {
-	char	*ret;
+	char *ret;
 	int		i;
 
 	i = 0;
@@ -22,10 +23,21 @@ char	*ft_strrchr(const char *s, int c)
 	while (*(s + i) != '\0')
 	{
 		if (*(s + i) == (const char)c)
-			ret = (char *)(s + i);
+		{
+			ret =  (char *)(s + i);
+		}
 		i++;
 	}
 	if (*(s + i) == (const char)c)
-		return (ret);
+		ret = (char *)(s + i);
 	return (ret);
 }
+/*
+int	main(int argc, char **argv)
+{
+	char *src = "the cake is a lie !\0I'm hidden lol\r\n";
+
+	printf("%s\n", (src + ft_strlen(src)));
+	printf("%s", ft_strrchr(src, ' '));
+}
+*/

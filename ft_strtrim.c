@@ -48,7 +48,7 @@ char			*ft_strtrim(char const *s)
 
 	j = 0;
 	i = first_fill(s);
-	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+	if (!(ret = (char *)malloc(sizeof(char) * (- i + last_fill(s) + 2))))
 		return (NULL);
 	while(i <= last_fill(s))
 	{

@@ -19,9 +19,11 @@ int		intlen(int nb)
 	int i;
 
 	i = 0;
-	if (nb == 0)
+	if (nb == -2147483648)
+		return(11);
+	else if (nb == 0)
 		return (1);
-	else if (nb < 0)
+	else if (nb < 0 && nb > -214748368)
 		return (intlen(-nb) + 1);
 	while (nb != 0)
 	{
@@ -55,32 +57,40 @@ char	*ft_itoa(int nbr)
 	int		b;
 
 	b = nbr;
-	a = intlen(nbr);
 	if(!(s = (char *)malloc(sizeof(char) * (intlen(nbr) + 1))))
 		return(NULL);
 	i = 0;
-	nbr = (int)nbr;
+	if (nbr == -2147483648)
+	{
+		*s = '8';
+		nbr = nbr / 10;
+	}
+	else if(nbr == 0)
+		*s = '0';
+	if (nbr == 0 || nbr == -2147483648)
+		i++;
 	if (nbr < 0)
 		nbr = -(nbr);
-	while (i < a)
+	a = intlen(nbr);
+	while (nbr != 0)
 	{
 		*(s + i) = (nbr) % 10 + '0';
 		nbr = nbr / 10;
 		i++;
 	}
-	*(s + i) = '\0';
-	ft_strrev(s);
 	if (b < 0)
-		*(s) = '-';
+		*(s + i++) = '-';
+	*(s + i) = '\0';	
+	ft_strrev(s);
 	return (s);
 }
-
 /*
 int			main(int argc, char **argv)
 {
 	int a;
 
 	a = atoi(*(argv + 1));
+	printf("%d\n", a);
 	printf("intlen %d\n", intlen(a));
 	printf("ft_itoa %s\n", ft_itoa(atoi(*(argv + 1))));
 }

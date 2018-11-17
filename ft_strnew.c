@@ -18,9 +18,10 @@ char	*ft_strnew(size_t size)
 	char	*of_the_king;
 	size_t	i;
 
-	of_the_king = (char *)malloc(size);
+	if(!(of_the_king = (char *)malloc(size + 1)))
+		return (NULL);
 	i = 0;
-	while (i < size)
+	while (i <= size)
 	{
 		*(of_the_king + i) = '\0';
 		i++;

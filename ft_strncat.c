@@ -20,11 +20,21 @@ char	*ft_strncat(char *restrict s1, const char *restrict s2, size_t n)
 
 	i = 0;
 	a = ft_strlen(s1);
-	while (i < n && *(s2 + a) != '\0')
+	while (i < n && *(s2 + i) != '\0' && s1 + a)
 	{
 		*(s1 + a) = *(s2 + i);
 		i++;
 		a++;
 	}
+	*(s1 + a) = '\0';
 	return (s1);
 }
+/*
+int	main(int argc, char **argv)
+{
+	char *str = "the cake is a lie !\0I'm hidden lol\r\n";
+	char buff2[0xF00] = "there is no stars in the sky";
+	size_t max = 1000;
+	printf("%s\n", ft_strncat(buff2, str, max));
+}
+*/

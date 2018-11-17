@@ -14,7 +14,8 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
-
+#include "libft.h"
+/*
 static int			ft_strlen(const char *s)
 {
 	int i;
@@ -26,7 +27,7 @@ static int			ft_strlen(const char *s)
 	}
 	return (i);
 }
-
+*/
 static char			*ft_strcpydot(char *dst, const char *src, char c)
 {
 	int i;
@@ -90,6 +91,29 @@ char				**ft_strsplit(const char *s, char c)
 			i++;
 		j++;
 	}
-	*(ret + j) = NULL;
+	*(ret + j) = (void *)0;
 	return (ret);
 }
+/*
+int	main(int argc, char **argv)
+{
+	int i = 0;
+	char **a;
+	char *s;
+	s = *(argv + 1);
+	char c;
+	c = **(argv + 2);
+	a = ft_strsplit(s, c);
+//	*a = (void *)0;	
+	while (i < 6)
+	{
+		printf("the %d string is: ", i);
+		if(*(a + i) == (void *)0)
+			printf("____oO0Oo____\n");
+		else
+			printf("%s\n", *(a + i));
+		i++;
+	}
+	//ft_putstr((void *)0);
+}
+*/

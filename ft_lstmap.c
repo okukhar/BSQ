@@ -16,14 +16,20 @@
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list *list;
+	t_list *new;
 
-	while ((*lst).next != NULL)
+	new = list;
+	while ((*lst).next)
 	{
 		if (!(list = (t_list *)malloc(sizeof(t_list))))
 			return (NULL);
-		list = (*f)(lst);
+		*list = *((*f)(lst));
 		list = (*list).next;
 		lst = (*lst).next;
 	}
+//	if (!(list = (t_list *)malloc(sizeof(t_list))))
+//		return (NULL);
+//	list = (*f)(lst);
+//	(*list).next = NULL;
 	return (list);
 }
