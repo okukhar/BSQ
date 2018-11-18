@@ -15,19 +15,7 @@
 #include <unistd.h>
 #include <string.h>
 #include "libft.h"
-/*
-static int			ft_strlen(const char *s)
-{
-	int i;
 
-	i = 0;
-	while (*(s + i) != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-*/
 static char			*ft_strcpydot(char *dst, const char *src, char c)
 {
 	int i;
@@ -53,17 +41,17 @@ static int			counter(const char *s, char c)
 		i++;
 	while (*(s + i) != '\0')
 	{
-		if (*(s + i) == c)
+		if (*(s + i) != c)
 		{
 			j++;
 		}
-		while (*(s + i) == c && *(s + i) != '\0')
+		while (*(s + i) != c && *(s + i) != '\0')
 			i++;
 		i++;
 	}
-	if (*(s + ft_strlen(s) - 1) == c)
-		return (j - 1);
-	return (j + 1);
+//	if (*(s + ft_strlen(s) - 1) == c)
+//		return (j - 1);
+	return (j);
 }
 
 char				**ft_strsplit(const char *s, char c)
@@ -76,9 +64,12 @@ char				**ft_strsplit(const char *s, char c)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (i < counter(s, c))
-		if (!(*(ret + i++) = (char *)malloc(sizeof(char) * ((ft_strlen(s) + 1)))))
+	while (i < counter(s, c) + 1)
+	{
+		if (!(*(ret + i) = (char *)malloc(sizeof(char) * ((ft_strlen(s) + 1)))))
 			return (NULL);
+		i++;
+	}
 	i = 0;
 	while (*(s + i) == c)
 		i++;
@@ -91,12 +82,14 @@ char				**ft_strsplit(const char *s, char c)
 			i++;
 		j++;
 	}
+//	printf("j is %d\n", j);
 	*(ret + j) = (void *)0;
 	return (ret);
 }
 /*
 int	main(int argc, char **argv)
 {
+	argc = 0;
 	int i = 0;
 	char **a;
 	char *s;
@@ -104,16 +97,20 @@ int	main(int argc, char **argv)
 	char c;
 	c = **(argv + 2);
 	a = ft_strsplit(s, c);
-//	*a = (void *)0;	
-	while (i < 6)
+	printf("couner: %d\n", counter(s, c));
+	while (*(a + i))
 	{
-		printf("the %d string is: ", i);
-		if(*(a + i) == (void *)0)
-			printf("____oO0Oo____\n");
+//		printf("the %d string is: ", i);
+		if(*(a + i) == (NULL))
+			printf("null");
 		else
 			printf("%s\n", *(a + i));
 		i++;
 	}
-	//ft_putstr((void *)0);
+	if(*(a + i) == (NULL))
+		printf("____oO0Oo____\n");
+		//ft_putstr((void *)0);
+//	printf("%s\n", *(a + 0));
+//	printf("%s\n", *(a + 1));
 }
 */

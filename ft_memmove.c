@@ -16,16 +16,16 @@
 #include "libft.h"
 
 /*
-//void	*ft_memmove(void *dt, const void *sc, size_t n)
-//{
-//	int i;
-//
-//	i = -1;
-//	while (i++ <= (int)n)
-//		*((char *)dt + (dt > sc) * n + (-2 * (dt > sc) + 1) * i) =
-//		*((char *)sc + (dt > sc) * n + (-2 * (dt > sc) + 1) * i);
-//	return (dt);
-//}
+void	*ft_memmove(void *dt, const void *sc, size_t n)
+{
+	int i;
+
+	i = -1;
+	while (i++ < (int)n * (1 - (dt == sc)))
+		*((unsigned char *)dt + (dt > sc) * (n - 1) + (-2 * (dt > sc) + 1) * i) =
+		*((unsigned char *)sc + (dt > sc) * (n - 1) + (-2 * (dt > sc) + 1) * i);
+	return (dt);
+}
 */
 
 void    *ft_memmove(void *dest, const void *src, size_t n)
@@ -35,9 +35,9 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 	i = 0;
 	if (dest > src)
 	{
-		while (i <= n)
+		while (i < n)
 		{
-			*((unsigned char *)dest + n - i) = *((unsigned char *)src + n - i);
+			*((unsigned char *)dest + n - 1 - i) = *((unsigned char *)src + n - 1 - i);
 					i++;
 		}
 		return (dest);
@@ -57,10 +57,11 @@ void    *ft_memmove(void *dest, const void *src, size_t n)
 /*
 int		main(int argc, char **argv)
 {
-	char *a = "this is a good nyancat !\r\n";
-	int size = ft_strlen(a);
+        char    src[] = "lorem ipsum dolor sit amet";
+	char    *dest;
+	dest = src + 1;
+	size_t size = 5;
 
-	char dst[0xF0];
-	ft_putmem(ft_memmove(dst, a, size), size);
+	ft_putmem(ft_memmove(dest, "consectetur", size), 22);
 }
 */

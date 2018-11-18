@@ -67,7 +67,7 @@ char	*ft_itoa(int nbr)
 	}
 	else if(nbr == 0)
 		*s = '0';
-	if (nbr == 0 || nbr == -2147483648)
+	if (nbr == 0 || b == -2147483648)
 		i++;
 	if (nbr < 0)
 		nbr = -(nbr);

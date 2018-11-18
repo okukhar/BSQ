@@ -13,16 +13,8 @@
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "libft.h"
 
-static int	ft_strlen(const char *s)
-{
-	int i;
-
-	i = 0;
-	while (*(s + i) != '\0')
-		i++;
-	return (i);
-}
 size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t		i;
@@ -38,7 +30,7 @@ size_t		ft_strlcat(char *dst, const char *src, size_t size)
 		return (src_len + size);
 	if (size > dst_len + 1)
 	{
-		while (i < size - 1)
+		while (i < size - 1 && *(src + j) != '\0')
 			*(dst + i++) = *(src + j++);
 		*(dst + i) = '\0';
 	}
@@ -53,11 +45,7 @@ size_t		ft_strlcat(char *restrict dst, const char *restrict src,
 
 	i = 0;
 	a = ft_strlen(dst);
-//	*(dst + a + dstsize + 3840 * 4) = 'a';
-//	printf("%d\n",(dst + a + dstsize + 3840 * 4) != NULL);
-//	printf("%d\n", (dst + a + dstsize + 3840) != NULL);
-//	printf("%d\n", (((dst + a + dstsize + 3840))) != NULL);
-	while (i < dstsize)
+	while (i < dstsize - 1 && *(src + i) != '\0')
 	{
 		*(dst + a) = *(src + i);
 		a++;
@@ -67,13 +55,25 @@ size_t		ft_strlcat(char *restrict dst, const char *restrict src,
 		*(dst + a) = '\0';	
 	return (ft_strlen(dst));
 }
-*/
-/*
-int		main(int argc, char **argv)
+
+int		main(void)
 {
-	char dst[0xF00] = "there is no stars in the sky";
-	char *src = "the cake is a lie !\0I'm hidden lol\r\n";
-	ft_strlcat(dst, src, ft_strlen(src) + ft_strlen(dst));
-	printf("%s", dst);
+	char *dst = (char *)malloc(sizeof(*dst) * 15);
+	char *dst1 = (char *)malloc(sizeof(*dst1) * 15);
+	char *dst2 = (char *)malloc(sizeof(*dst2) * 15);
+	dst[11] = 'a';
+	dst1[11] = 'a';
+	dst2[11] = 'a';
+//	char *src = "the cake is a lie !\0I'm hidden lol\r\n";
+//	ft_putmem(dst, 15);
+	strlcat(dst, "lorem", 15);
+	ft_putmem(dst, 15);
+	write(1, "\n", 1);
+	ft_strlcat(dst1, "lorem", 15);
+	ft_putmem(dst1, 15);
+	write(1, "\n", 1);
+	ft_strlcat1(dst2, "lorem", 15);
+	ft_putmem(dst2, 15);
+	write(1, "\n", 1);
 }
 */
