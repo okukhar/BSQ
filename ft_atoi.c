@@ -38,8 +38,18 @@ int				ft_atoi(char *str)
 		i++;
 	}
 	if (*(str + i) == '-')
-		return (-(int)number((str + i + 1)));
+	{	
+		if (-(int)number(str + i + 1) >= 0)
+			return (0);
+		return (-(int)number(str + i + 1));
+	}
 	else if (*(str + i) == '+')
+	{
+		if ((int)number(str + i + 1) < 0)
+			return (-1);
 		return ((int)number((str + i + 1)));
+	}
+	if ((int)number((str + i)) < 0)
+		return (-1);
 	return ((int)number(str + i));
 }

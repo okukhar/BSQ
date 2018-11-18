@@ -100,7 +100,7 @@ int	main(int argc, char **argv)
 	printf("couner: %d\n", counter(s, c));
 	while (*(a + i))
 	{
-//		printf("the %d string is: ", i);
+		printf("the %d string is: ", i);
 		if(*(a + i) == (NULL))
 			printf("null");
 		else
@@ -108,7 +108,7 @@ int	main(int argc, char **argv)
 		i++;
 	}
 	if(*(a + i) == (NULL))
-		printf("____oO0Oo____\n");
+		printf("the %d string is: NULL \n", i);
 		//ft_putstr((void *)0);
 //	printf("%s\n", *(a + 0));
 //	printf("%s\n", *(a + 1));
