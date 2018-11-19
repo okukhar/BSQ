@@ -19,7 +19,7 @@ OBJ2 = ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o ft_memchr.o 
 all: $(NAME)
 
 $(NAME): 
-	gcc -c -Werror -Wextra -Wall $(OBJ)
+	gcc -c -Wextra -Werror -Wall $(OBJ)
 	ar rcs $(NAME) $(OBJ2)
 
 clean:
